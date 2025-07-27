@@ -1,0 +1,25 @@
+<style>
+  #ilka-status .yes,.no {
+    font-weight: bold;
+  }
+  #ilka-status .off {
+    display: none;
+  }
+</style>
+
+<script>
+  const url = 'https://s3.eu-west-1.amazonaws.com/faehrt-die-ilka.schnackenburg.de/index.json';
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      el = document.querySelector('#ilka-status .' + (data.service ? 'yes' : 'no'))
+      el.classList.remove('off')
+    })
+    .catch(console.error);
+</script>
+
+<div id="ilka-status">
+  <p class="yes off">Ja, die Ilka fährt.</p>
+  <p class="no off">Nein, die Ilka fährt derzeit nicht.</p>
+  <p>Mehr Informationen gibt es möglicherweise beim <a href="https://www.amtlenzen.de/seite/630583/fahrplan.html">Amt Lenzen</a>, das die Fähre betreibt.</p>
+</div>
