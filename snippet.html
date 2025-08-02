@@ -1,10 +1,33 @@
 <style>
-  #ilka-status .yes,.no {
-    font-weight: bold;
-  }
-  #ilka-status .off {
-    display: none;
-  }
+#ilka-status {
+  padding-left: 92px;
+}
+
+#ilka-status .yes::before,
+#ilka-status .no::before {
+  content: " ";
+  position: absolute;
+  top: -14px;
+  left: -10px;
+  width: 96px;
+  height: 96px;
+  background-image: url(https://schnackenburg.de/wp-content/uploads/yes-no.png);
+  background-repeat: no-repeat;
+  background-size: auto 92px;
+}
+#ilka-status .yes::before {
+    background-position: -110px;
+}
+
+#ilka-status .yes,.no {
+  font-weight: bold;
+}
+#ilka-status .yes {
+  font-weight: bold;
+}
+#ilka-status .off {
+  display: block;
+}
 </style>
 
 <script>
